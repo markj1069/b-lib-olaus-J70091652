@@ -4,26 +4,30 @@
 
 printf "%s\n" "OLS0000I Begin ${0}"
 
-source $OLSLIB
+source lib/olslib
 
-# Build the Olaus Shell Test Library
+OLS_TARGET_LIB=lib/newlib
 
- if [[ -z "$1" ]]; then
-    ols_err $OLSID 7001 $EX_USAGE "${FUNCNAME}: Augument #1 missing, library_source"
-else
-    OLS_SOURCE_LIB="$1"
-fi
+ols_begin
 
-if [[ -z "$2" ]]; then
-    ols_err $OLSID 7002 $EX_USAGE "${FUNCNAME}: Augument #2 missing, library_target"
-else
-    OLS_TARGET_LIB="$2"
-fi
+# Build the Olaus Bash Shell Library
+#
+# if [[ -z "$1" ]]; then
+#    ols_err $OLSID 7001 $EX_USAGE "${FUNCNAME}: Augument #1 missing, library_source"
+#else
+#    OLS_SOURCE_LIB="$1"
+#fi
 
-OLS_FILELIST="$OLSPROJ/adm/LIB_FILELIST.txt"
+#if [[ -z "$2" ]]; then
+#    ols_err $OLSID 7002 $EX_USAGE "${FUNCNAME}: Augument #2 missing, library_target"
+#else
+#    OLS_TARGET_LIB="$2"
+#fi
+
+OLS_FILELIST="lib/LIB_FILELIST.txt"
 library_file=olslib
 library="$OLS_TARGET_LIB"
-source_lib="$OLS_LIB/ols_lib"
+source_lib="lib"
 library_title="Olaus Bash Shell Library"
 
 
@@ -33,6 +37,10 @@ declare    -r -x LIB_LS="$OLS_TMP_DIR/ls_sh.txt"
 declare    -r -x LIB_WO="$OLS_TMP_DIR/wo_def.txt"
 declare    -r -x LIB_SORT="$OLS_TMP_DIR/sorted.txt"
 declare    -r -x LIB_FINAL="$OLS_TMP_DIR/final.txt"
+
+echo
+pwd
+echo
 
 # Build the library header
 
@@ -44,17 +52,15 @@ printf "%s\n" "# Library:  $library_title" >>$OLS_TARGET_LIB
 
 printf "%s\n" "# Filename: $library_file" >>$OLS_TARGET_LIB
 
-printf "%s\n" "# Released: $(cat $OLSPROJ/adm/DATE.txt)" >>$OLS_TARGET_LIB
+printf "%s\n" "# Released: $(cat adm/RELEASE_DATE.txt)" >>$OLS_TARGET_LIB
 
-version=$(cat "$OLSPROJ/adm/VERSION.txt")
-
-printf "%s\n" "# Version:  $version" >>$OLS_TARGET_LIB
+printf "%s\n" "# Version:  $(cat adm/VERSION.txt)" >>$OLS_TARGET_LIB
 printf "%s\n" "#-------------------------------------------------------------------------------" >>$OLS_TARGET_LIB
 printf " \n" >>$OLS_TARGET_LIB                                                                                     
 printf " \n" >>$OLS_TARGET_LIB
 
 # Calculate the members of the library.
-
+ols_end
 # Don't want the path included in the filenames from ls.
 pushd $OLS_SOURCE_LIB >/dev/null  # Change to the OLS_SOURCE_LIB directory
 
