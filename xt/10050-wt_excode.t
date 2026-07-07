@@ -20,5 +20,7 @@ declare EX_CODE=EX_BASE
     READ_NO=$(cat $OLS_EX_FILE)
     is $READ_NO  $EX_BASE 4 "The number in OLS_EX_FILE should be EX_BASE."
 
-    ols_wt_excode $EX_OK
+    ols_wt_excode $EX_OK              # Insure a successful exit code.
+
+    ols_end
     

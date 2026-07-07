@@ -3,7 +3,9 @@
 source lib/olslib
 
     ONE=$(printf "%s\n" "1..1")
+    echo "ONE: '$ONE'"
     NULL=$(printf "%s\n" "")
+    echo "NULL: '$NULL'"
 
     printf "%s\n" "1..8"          
 
