@@ -2,6 +2,23 @@
 
 function is() {
 
+###################################################################################################
+# Usage:      is.sh got expected test_name [diagnostic_message]
+# Purpose:    is is a function that compares two arguments, got and expected,
+#             to determine if they are equal. A TAP formatted message is printed
+#             to stdout indicating the result of the comparison.
+# Returns:    
+# Exit Code:  0 - Successful termination
+# Parameters: got - The value that was obtained from a function or command.
+#             expected - The value that was expected from a function or command.
+#             test_name - The name of the test being performed.
+#             diagnostic_message - An optional message to be printed if the test fails.     
+# Throws:     None.
+# Comments:   n/a
+# See Also:   Perl prove, OLSLIB, ols_err, ols_tap_print
+###################################################################################################
+
+
 # Synopsis: is got expected test_name dianostic_message    
     if [[ $# -eq 0 ]]
     then

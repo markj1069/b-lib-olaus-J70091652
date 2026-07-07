@@ -21,7 +21,7 @@ function test_plan() {
         local plan=""
     fi
 
-    printf "%s\n" "$plan" >&1         # Send the TAP test plan to STDOUT.
+    printf "%s\n" "$plan"             # Send the TAP test plan to STDOUT.
 
     return $EX_OK
 

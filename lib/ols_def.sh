@@ -6,11 +6,12 @@ if [[ -z "$OLS_DEF" ]]; then
     declare    -r -x FALSE=0
     declare    -r -x SUCCESS=0
     declare    -r -x FAIL=1
-
+    declare    -r -x PASS=0
     declare    -r -x OLSID="OLS"        # Olaus ID
 
   # Exit code definitions:
     declare -i -r -x EX_OK=0            # Successful termination
+    declare -i -r -x EX_PASS=1          # Informational message
     declare -i -r -x EX_WARNING=4       # Warning
     declare -i -r -x EX_ERROR=8         # Error
     declare -i -r -x EX_SEVERE=12       # Severe error
@@ -84,12 +85,13 @@ if [[ -z "$OLS_DEF" ]]; then
     declare    -r -x OLS_TAP_VERSION="TAP version 14"
 
   # Olaus argument and option processing variables
+    declare       -x OLS_BASH_SOURCE="${BASH_SOURCE[0]}"
     declare -i    -x OLS_VERBOSE=0      # Initialize to normal output.
     declare -i    -x OLS_DEBUG=$FAIL    # Initialize to no debugging output.
     declare -i    -x OLS_LOG=$FAIL      # Initialize to no log output.
-    declare       -x OLS_LOG_FILE="log.log" # Initialize OLS_LOG_FILE for debugging.
+    declare       -x OLS_LOG_FILE="$OLS_BASH_SOURCE.log"  # Initialize OLS_LOG_FILE for debugging.
     
   # Switch to load definitions one time.
-    declare    -r -x OLS_DEF=$TRUE      # OLSDEF=T ==> ols_def has been loaded.
+    declare -i -r -x OLS_DEF=$TRUE      # OLSDEF=T ==> ols_def has been loaded.
 
 fi # if [[ -z "$OLS_DEF" ]]

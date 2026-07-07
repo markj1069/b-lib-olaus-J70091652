@@ -8,7 +8,7 @@ B<ols_begin> - Olaus BASH Shell Housekeeping Function at Beginning of Script
 
 =head1 SYNOPSIS
 
-source $OLS_LIB/ols_begin.sh
+source $OLSLIB
 
 =head1 DESCRIPTION
 

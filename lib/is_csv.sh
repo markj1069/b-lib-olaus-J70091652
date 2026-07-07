@@ -21,7 +21,7 @@ function is_csv() {
     fi
 
     # Does this file have a CSV extention?
-    if [[ ! "$csv_file_name" == *.csv ]]; then
+    if [[ ! "${csv_file_name##*.,,}" == "csv" ]]; then
         ols_err "$OLSID" 1079 $EX_USAGE "$SCRIPT_NAME is_csv: $csv_file_name does not have a CSV extention."
         ols_set_excode $EX_USAGE
         ols_end

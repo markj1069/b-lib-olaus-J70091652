@@ -1,5 +1,15 @@
 # ols_err -- Print an Olaus Shell Library Error Message
 
+###################################################################################################
+# Usage:      ols_err pgmid errnum ex_code msg
+# Purpose:    Print an error message to STDERR
+# Returns:    
+# Parameters: None.
+# Throws:     None.
+# Comments:    
+# See Also:   
+###################################################################################################
+
 function ols_err() {
 
 # Synopsis: ols_err pgmid errnum ex_code msg
