@@ -14,7 +14,7 @@ OLSTARGET := lib/olslib
 .SUFFIXES:
 .SUFFIXES: .bash .t
 
-default: all
+default: lib
 
 # Targets
 
@@ -35,12 +35,11 @@ default: all
 
 # Development Suport Targets
 
-.PHONY: all                  # Default target.
 .PHONY: test                 # Run development tests.
 .PHONY: TAGS                 # Regenerate program TAGS
 .PHONY: dvi                  # Generate dvi documentation.
 .PHONY: info                 # Generate info documentation.
-.PHONY: lib                  # Generate Olaus Bash Shell Library
+.PHONY: lib                  # Generate Olaus Bash Shell Library, default target.
 .PHONY: html                 # Generate HTML documentation.
 .PHONY: pdf                  # Generate PDF documentation.
 .PHONY: ps                   # Generate postscript documentation.
@@ -165,8 +164,7 @@ installdirs:
 	echo "installdirs:"
 
 test:
-	prove xt
-
+	prove xt t
 
 distcheck:
 	echo "distcheck:"
