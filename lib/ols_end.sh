@@ -84,6 +84,8 @@ function ols_end() {
 
     trap '' EXIT                       # No need to trap exit here
 
+    [[ $OLS_VERBOSE -ne $PASS ]] && ols_err $PGMID 0000 $EX_OK "END  $(date +'%H:%M:%S')"
+
     if [[ ! "$OLS_TMP_DIR" || ! -d "$OLS_TMP_DIR" ]]; then
         # Don't try to delete the non existant temporary directory.
         exit $EX_TEMPFAIL

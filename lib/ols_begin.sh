@@ -119,8 +119,9 @@ SUCH DAMAGE.
 =cut
 
 # Make some pretty date strings.
-declare    -r -x DATE=$(date +'%Y-%m-%d') # Grab today's date
-declare    -r -x YEAR=$(date +'%Y')       # We want the year also.
+declare    -r -x OLS_DATE=$(date +'%Y-%m-%d') # Grab today's date
+declare    -r -x OLS_YEAR=$(date +'%Y')       # We want the year also.
+declare    -r -x OLS_TIME=$(date +'%H:%M:%S') # Grab the start time.
 
 declare    -r -x OLS_TMP_DIR=$(mktemp -d) # Make a directory for temporary files.
 # check if tmp dir was created

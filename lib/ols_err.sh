@@ -19,7 +19,7 @@ function ols_err() {
         ols_set_excode $EX_USAGE
         ols_end
     else
-        PGMID="$1"
+        localPGMID="$1"
     fi
     if [[ -z "$2" ]]; then
         printf "%s%s%s\n" "${PGMID}7001F" " " "ols_err: Augument #2 missing, errnum"

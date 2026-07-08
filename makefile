@@ -11,6 +11,8 @@ OLSLIST := $(addprefix $(FILENAMESLIB)/, ols_begin.sh ols_def.sh ols_end.sh ols_
 		   diag.sh pass.sh fail.sh BAIL_OUT.sh \
 		   vprintf.sh is_csv.sh)
 OLSTARGET := lib/olslib
+OLSDIR := lib
+
 .SUFFIXES:
 .SUFFIXES: .bash .t
 
@@ -40,6 +42,7 @@ default: lib
 .PHONY: dvi                  # Generate dvi documentation.
 .PHONY: info                 # Generate info documentation.
 .PHONY: lib                  # Generate Olaus Bash Shell Library, default target.
+.PHONY: newlib               # Copy newlib to $(OLSTARGET)
 .PHONY: html                 # Generate HTML documentation.
 .PHONY: pdf                  # Generate PDF documentation.
 .PHONY: ps                   # Generate postscript documentation.
@@ -145,8 +148,10 @@ info:
 	echo "info:"
 
 lib:
-	bin/build-lib.sh $(OLSDIR) $(OLSDIR)/newlib
-	mv $(OLSDIR)/newlib $(OLSLIB)
+	bin/build-lib.sh $(OLSDIR)/newlib
+
+newlib:
+	cp $(OLSDIR)/newlib $(OLSTARGET)
 
 dvi:
 	echo "dvi:"
@@ -165,6 +170,12 @@ installdirs:
 
 test:
 	prove xt t
+
+testxt:
+	prove xt                          # Test the development tests in the xt directory.
+
+testt:
+	prove t
 
 distcheck:
 	echo "distcheck:"
