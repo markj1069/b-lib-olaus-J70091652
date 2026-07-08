@@ -1,0 +1,5 @@
+# Test File Nine
+
+This is test file nine.
+
+This file does not have read permission.
