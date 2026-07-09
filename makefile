@@ -1,17 +1,15 @@
 
 FILENAMESLIB := lib
 
-OLSLIST := $(addprefix $(FILENAMESLIB)/, ols_begin.sh ols_def.sh ols_end.sh ols_err.sh \
-           ols_file.sh ols_help.sh ols_list.sh ols_man.sh \
-		   ols_mktemp.sh ols_rmtemp.sh ols_setex.sh ols_signal.sh \
-		   ols_test.sh ols_type.sh ols_usage.sh ols_version.sh \
-		   filebase.sh filename.sh filepath.sh  filesfx.sh \
-		   getopt.sh \
-		   tst_plan.sh is.sh isnot.sh ok.sh \
-		   diag.sh pass.sh fail.sh BAIL_OUT.sh \
-		   vprintf.sh is_csv.sh)
+OLSLIST := $(addprefix $(FILENAMESLIB)/, \
+           is_csv.sh is.sh ols_begin.sh ols_bmp_tstno.sh ols_bmp_tstno.sh \
+		   ols_def.sh ols_end.sh ols_err.sh ols_num.sh ols_rd_excode.sh ols_rd_tstno.sh \
+		   ols_set_excode.sh ols_tap_print_assertion.sh ols_tap_print.sh ols_tap_print_version.sh \
+		   ols_wt_excode.sh ols_wt_tstno.sh test_plan.sh )
 OLSTARGET := lib/olslib
 OLSDIR := lib
+INSTALL_DIR := $(HOME)/.local/lib
+INSTALL_LIB := $(INSTALL_DIR)/olslib
 
 .SUFFIXES:
 .SUFFIXES: .bash .t
@@ -69,11 +67,21 @@ default: lib
 .PHONY: veryclean            # Run realclean then removes backup files.
 .PHONY: zipdist              # Run distdir then create a $(ZIP) zipfile.
 
+.PHONY: newlib
+.PHONY: cpnewlib
+.PHONY: olslib
+
 #
 
+newlib lib/newlib: $(OLSLIST)
+	bin/build-lib.sh
 
-olslib:
-	bin/build-lib
+olslib lib/olslib: lib/newlib
+	cp lib/newlib lib/olslib
+
+
+#lib/olslib: lib/newlib
+#	bin/build-lib.sh
 
 olstst:
 	bin/build-tst
@@ -83,11 +91,11 @@ olslst:
 
 	olslst
 
-install:
-	echo "install:"
+install: $(OLSTARGET)
+	cp $(OLSTARGET) $(NSTALL_DIR)/$(INSTALL_LIB)
 
 uninstall:
-	echo "uninstall:"
+	rm $(INSTALL_DIR)/$(INSTALL_LIB)
 
 install-strip:
 	echo "install-strip:"
@@ -150,7 +158,7 @@ info:
 lib:
 	bin/build-lib.sh $(OLSDIR)/newlib
 
-newlib:
+cpnewlib:
 	cp $(OLSDIR)/newlib $(OLSTARGET)
 
 dvi:

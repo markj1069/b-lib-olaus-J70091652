@@ -25,6 +25,8 @@ PROJ_T="$PROJ_DIR/t"                  # The name of the project standard test di
 
 source "$PROJ_OLS"                    # Include the local copy of the Olaus Bash Shell Library.
 
+OLS_VERBOSE=0
+
 
 # Validate arguments
 # Do the arguments exist?
