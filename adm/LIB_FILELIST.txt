@@ -10,6 +10,7 @@ ols_bmp_tstno.sh
 ols_begin.sh
 ols_bmp_tstno.sh
 ols_err.sh
+assert.sh
 is.sh
 is_csv.sh
 ols_tap_print_assertion.sh
