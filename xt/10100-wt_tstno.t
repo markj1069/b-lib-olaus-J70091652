@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 
-source lib/olslib
+source lib/newlib
 
 declare -r TST_NO=7297
 

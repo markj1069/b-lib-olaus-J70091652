@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 
-source lib/olslib
+source lib/newlib
 
     printf "1..1\n"                   # Simulate ols_tst_plan
 

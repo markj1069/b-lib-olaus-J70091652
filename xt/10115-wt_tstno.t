@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 
-source lib/olslib
+source lib/newlib
 
 declare -r TST_NO=0
 declare -r TST_NO1=$((TST_NO+1))

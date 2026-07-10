@@ -2,7 +2,7 @@
 
 # Test that a leading zero does not show up in OLS_TSTFILE.
 
-source lib/olslib
+source lib/newlib
 
 declare -r TST_NO=7297
 declare -r TST_NO1=$((TST_NO+1))

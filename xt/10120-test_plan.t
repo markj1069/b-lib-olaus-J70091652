@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 
-source lib/olslib
+source lib/newlib
 
     ONE=$(printf "%s\n" "1..1")
     echo "ONE: '$ONE'"

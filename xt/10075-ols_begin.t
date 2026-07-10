@@ -2,7 +2,7 @@
 
 printf "%s\n" "OLS0000I Begin"
 
-source lib/olslib
+source lib/newlib
 
 printf "%s\n" "1..4"
 
