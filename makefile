@@ -1,7 +1,7 @@
 
 FILENAMESLIB := lib
 
-OLSLIST := $(addprefix $(FILENAMESLIB)/, \
+OLSLIST := makefile $(addprefix $(FILENAMESLIB)/, \
            is_csv.sh is.sh ols_begin.sh ols_bmp_tstno.sh ols_bmp_tstno.sh \
 		   ols_def.sh ols_end.sh ols_err.sh ols_num.sh ols_rd_excode.sh ols_rd_tstno.sh \
 		   ols_set_excode.sh ols_tap_print_assertion.sh ols_tap_print.sh ols_tap_print_version.sh \
@@ -155,8 +155,9 @@ TAGS:
 info:
 	echo "info:"
 
-lib:
+lib: lib/olslib
 	bin/build-lib.sh $(OLSDIR)/newlib
+	cp $(OLSDIR)/newlib $(OLSTARGET)
 
 cpnewlib:
 	cp $(OLSDIR)/newlib $(OLSTARGET)
@@ -179,7 +180,7 @@ installdirs:
 test:
 	prove xt t
 
-testxt:
+testxt: lib/newlib
 	prove xt                          # Test the development tests in the xt directory.
 
 testt:
