@@ -139,7 +139,9 @@ clean:
 	-rm --force tmp.*	
 
 distclean:
-	echo "distclean:"
+	make clean
+	-rm --force lib/newlib
+	-rm --force lib/olslib
 
 mostlyclean:
 	echo "mostlyclean:"
