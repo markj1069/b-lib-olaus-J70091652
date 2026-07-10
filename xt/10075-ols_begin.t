@@ -6,14 +6,14 @@ source lib/newlib
 
 printf "%s\n" "1..4"
 
-if [[ -z "$DATE" ]]; then
+if [[ -z "$OLS_DATE" ]]; then
     printf '%s\n' 'not ok 1 - DATE undefined after source command.'
     RC=$EX_ERROR
 else
     printf '%s\n' 'ok 1 - DATE, $DATE, is defined.'
 fi
 
-if [[ -z "$YEAR" ]]; then
+if [[ -z "$OLS_YEAR" ]]; then
     printf '%s\n' 'not ok 2 - YEAR undefined after source command.'
     RC=$EX_ERROR
 else
