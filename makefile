@@ -130,6 +130,7 @@ clean:
 	-rm --force t/*.tmp
 	-rm --force t/tmp.*
 	-rm --force core
+	-rm --force *.log
 	-rm --force *.stackdump
 	-rm --force *.tmp
 	-rm --force *.html
