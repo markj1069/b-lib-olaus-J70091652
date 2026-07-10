@@ -2,7 +2,7 @@
 
 # Test is_real, is_ureal, is_int is_uint
 
-source lib/olslib
+source lib/newlib
 
 declare -i       pint=+7
 declare -i       nint=-7

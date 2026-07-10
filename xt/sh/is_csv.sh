@@ -10,7 +10,7 @@
 # See Also:   Perl prove, OLSLIB
 ###################################################################################################
 
-source lib/olslib
+source lib/newlib
 
 csv_file_name="$1"
 
