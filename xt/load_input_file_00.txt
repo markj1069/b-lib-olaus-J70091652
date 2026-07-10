@@ -1,2 +1,0 @@
-text: load_input_file_00.txt
-      line 2

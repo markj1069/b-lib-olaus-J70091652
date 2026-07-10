@@ -1,1 +1,0 @@
-text: load_input_file_07.txt
