@@ -7,17 +7,17 @@ source lib/newlib
 printf "%s\n" "1..4"
 
 if [[ -z "$OLS_DATE" ]]; then
-    printf '%s\n' 'not ok 1 - DATE undefined after source command.'
+    printf '%s\n' 'not ok 1 - OLS_DATE undefined after source command.'
     RC=$EX_ERROR
 else
-    printf '%s\n' 'ok 1 - DATE, $DATE, is defined.'
+    printf '%s\n' 'ok 1 - OLS_DATE, $OLS_DATE, is defined.'
 fi
 
 if [[ -z "$OLS_YEAR" ]]; then
-    printf '%s\n' 'not ok 2 - YEAR undefined after source command.'
+    printf '%s\n' 'not ok 2 - OLS_YEAR undefined after source command.'
     RC=$EX_ERROR
 else
-    printf '%s\n' 'ok 2 - YEAR, $YEAR, is defined.'
+    printf '%s\n' 'ok 2 - OLS_YEAR, $OLS_YEAR, is defined.'
 fi
 
 if [[ -z "$OLS_TSTFILE" ]]; then
