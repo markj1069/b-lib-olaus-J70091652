@@ -112,21 +112,22 @@ Grok. 2026. “Test Assertion.” Encyclopedia. Grokipedia, X, January 9. https:
 function assert () {
 
     if [[ -z "$1" ]]; then
-        ols_err $OLSID 7001 $EX_USAGE "assert: missing argument 1, condition"
+        ols_err $OLSID 7001 $EX_USAGE "assert: Missing Argument #1, condition"
     else
         local CONDITION="$1"
     fi
 
     if [[ -z "$2" ]]; then
-        ols_err $OLSID 7002 $EX_USAGE "assert: missing argument 2, lineno"
+        ols_err $OLSID 7002 $EX_USAGE "assert: Missing Argument #2, lineno"
     else
         local LINENO="$2"
     fi
 
     if [ ! $CONDITION ]; then
-        ols_err $OLSID 7002 $EX_ASSERTFAIL "assert: Assertion Fail. '$CONDITION', File '$0', line '$LINENO'"
+        ols_err $OLSID 7910 $EX_ASSERTFAIL "assert: Assertion Fail. '$CONDITION', File '$0', line '$LINENO'"
     fi
 
     return
+    
 } # end assert
 

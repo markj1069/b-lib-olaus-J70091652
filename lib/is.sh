@@ -20,18 +20,23 @@ function is() {
 
 
 # Synopsis: is got expected test_name dianostic_message    
-    if [[ $# -eq 0 ]]
+    if [[ -z "$1" ]]
     then
-        ols_err $OLSID 7000 $EX_USAGE"${FUNCNAME}: Arguments 1-3 missing, got, expected and test_name"
+        ols_err $OLSID 7001 $EX_USAGE "is: Missing Argument #1, got"
     fi
-    if [[ $# -eq 1 ]]
+    if [[ -z "$2" ]]
     then
-        ols_err $OLSID 7000 $EX_USAGE "${FUNCNAME}: Arguments 2-3, expected and test_name"
+        ols_err $OLSID 7002 $EX_USAGE "is: Missing Argument #2, expected"
     fi
-    if [[ $# -eq 2 ]]
+    if [[ -z "$3" ]]
     then
-        ols_err $OLSID 7000 $EX_USAGE "${FUNCNAME}: Argument 3 missing, test_name"
+        ols_err $OLSID 7003 $EX_INFO "is: Missing Argument #3, test_name"
     fi
+    if [[ -z "$4" ]]
+    then
+        ols_err $OLSID 7004 $EX_INFO "is: Missing Argument #4, dianostic_message"
+    fi
+
 
     got="$1"
     expected="$2"
@@ -73,16 +78,16 @@ function is() {
 
         if [[ $got -eq $expected ]]    # Both got and expected are integers
         then                           # use the bash numerial comparison
-            ols_tap_print $TRUE  $test_name $diagnostic_message
+            ols_tap_print $TRUE  $test_name "$diagnostic_message"
         else
-            ols_tap_print $FALSE $test_name $diagnostic_message
+            ols_tap_print $FALSE $test_name "$diagnostic_message"
         fi
     else
         if [[ "$got" == "$expected" ]]     # Got or expected is a string
         then                               # use the bash string comparison.
-            ols_tap_print $TRUE  $test_name $diagnostic_message
+            ols_tap_print $TRUE  $test_name "$diagnostic_message"
         else                    
-            ols_tap_print $FALSE $test_name $diagnostic_message
+            ols_tap_print $FALSE $test_name "$diagnostic_message"
         fi
     fi
  

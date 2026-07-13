@@ -103,7 +103,8 @@ Mark J Jensen E<lt>mark@jensen.netE<gt>
 function ols_rd_excode() {
 
     # Synopsis: N=$(ols_rd_excode)
-    EX_CODE=$(cat "$OLS_EX_FILE")     # EX_CODE as a trailing NEWLINE
-    printf "%s" "$EX_CODE"            # Strip the NEWLINE
+    read -r EX_CODE <"$OLS_EX_FILE"   # EX_CODE as a trailing NEWLINE
+    EX_CODE="${$EX_CODE%$'\n'}"       # Strip the NEWLINE
+    echo $EX_CODE                     # Return EX_CODE
 
 } # end ols_rd_tstno

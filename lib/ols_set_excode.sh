@@ -63,7 +63,7 @@ Mark J Jensen E<lt>mark@jensen.netE<gt>
 function ols_set_excode()
 {
     if [[ -z "$1" ]]; then
-        ols_err 7001 $EX_SOFTWARE "ols_set_excode: missing argument 1, ex_code"
+        ols_err $OLSID 7001 $EX_USAGE "ols_set_excode: Missing Argument #1, ex_code"
     else
         local -i ex_code=$1
     fi

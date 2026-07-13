@@ -11,6 +11,7 @@ if [[ -z "$OLS_DEF" ]]; then
 
   # Exit code definitions:
     declare -i -r -x EX_OK=0            # Successful termination
+    declare -i -r -x EX_INFO            # Informational message
     declare -i -r -x EX_PASS=1          # Informational message
     declare -i -r -x EX_WARNING=4       # Warning
     declare -i -r -x EX_ERROR=8         # Error
