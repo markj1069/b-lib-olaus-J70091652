@@ -17,3 +17,13 @@ ols_tap_print_assertion.sh
 ols_tap_print_version.sh
 test_plan.sh
 ols_num.sh
+todo-BAIL_OUT.sh
+todo-fail.sh
+todo-note.sh
+todo-pass.sh
+todo-diag.sh
+todo-isnt.sh
+todo-ok.sh
+todo-not_ok.sh
+todo-TODO.sh
+todo-cmp_ok.sh

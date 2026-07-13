@@ -142,7 +142,7 @@ distclean:
 	echo "distclean:"
 
 mostlyclean:
-    make clean
+	make clean
 	-rm --force lib/newlib
 
 realclean:
