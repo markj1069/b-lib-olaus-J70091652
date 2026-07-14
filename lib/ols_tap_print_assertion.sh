@@ -7,19 +7,19 @@ function ols_tap_print_assertion() {
     # Check for missing arguments.
 
     if [[ -z "$1" ]]; then
-        ols_err 7001 $EX_USAGE "ols_tap_print_assertion: Missing Argument #1, test_result"
+        ols_err $OLSID 7001 $EX_USAGE "ols_tap_print_assertion: Missing Argument #1, test_result"
     else
         local -i test_result=$1
     fi
 
     if [[ -z "$2" ]]; then
-        ols_err 7002 $EX_WARNING "ols_tap_print_assertion: Missing Argument #2, test_name"
+        ols_err $OLSID 7002 $EX_WARNING "ols_tap_print_assertion: Missing Argument #2, test_name"
     else
         local -i test_result=$1
     fi
 
     if [[ -z "$3" ]]; then
-        ols_err 7001 $EX_INFO "ols_tap_print_assertion: Missing Argument #1, test_result"
+        ols_err $OLSID 7001 $EX_INFO "ols_tap_print_assertion: Missing Argument #1, test_result"
     else
         local -i test_result=$1
     fi
