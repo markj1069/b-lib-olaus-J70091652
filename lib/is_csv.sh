@@ -8,22 +8,22 @@ function is_csv() {
 
     # Does the csv_file_name have a value?
     if [[ -z "$csv_file_name" ]]; then
-        ols_err "$OLSID" 7001 "$EX_USAGE" "is_csv: Argument #1 missing, csv_file_name."
+        ols_err $OLSID 7001 "$EX_USAGE" "is_csv: Argument #1 missing, csv_file_name"
         ols_set_excode $EX_USAGE
         ols_end
     fi
 
     # Does this file exist?
     if [[ ! -f "$csv_file_name" ]]; then
-        ols_err "$OLSID" 1079 $EX_MISSINGFILE "is_csv: $csv_file_name does not exist or is not a normal file."
-        ols_set_excode $EX_MISSINGFILE
+        ols_err $OLSID 7070 $EX_NOINPUT "is_csv: $csv_file_name does not exist or is not a normal file"
+        ols_set_excode $EX_NOINPUT
         ols_end
     fi
 
     # Does this file have a CSV extention?
     if [[ ! "${csv_file_name##*.,,}" == "csv" ]]; then
-        ols_err "$OLSID" 1079 $EX_USAGE "$SCRIPT_NAME is_csv: $csv_file_name does not have a CSV extention."
-        ols_set_excode $EX_USAGE
+        ols_err $OLSID 7071 $EX_INFO "is_csv: $csv_file_name does not have a 'csv' extention."
+        ols_set_excode $EX_INFO
         ols_end
     fi
 

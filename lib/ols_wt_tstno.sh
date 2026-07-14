@@ -66,7 +66,7 @@ function ols_wt_tstno() {
 
     if [[ -z "$1" ]]
     then
-        ols_err "$OLSID" 7001 $EX_USAGE "ols_wt_tstno: Missing Argument #1, num"
+        ols_err $OLSID 7001 $EX_USAGE "ols_wt_tstno: Missing Argument #1, num"
     else
         local num=$(printf "%u" "$1"); num=${num// /0}  # Convert leading blanks to leading zeros.
     fi

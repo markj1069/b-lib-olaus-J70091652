@@ -15,21 +15,21 @@ function ols_err() {
 # Synopsis: ols_err pgmid errnum ex_code msg
 
     if [[ -z "$1" ]]; then
-        printf "%s%s%s\n" "ZZZ7001F" " " "ols_err: Argument #1 missing, pgmid"
+        printf "%s%s%s\n" "OLS7001F" " " "ols_err: Argument #1 missing, pgmid"
         ols_set_excode $EX_USAGE
         ols_end
     else
         local PID="$1"
     fi
     if [[ -z "$2" ]]; then
-        printf "%s%s%s\n" "${PGMID}7001F" " " "ols_err: Augument #2 missing, errnum"
+        printf "%s%s%s\n" "OLS7002F" " " "ols_err: Augument #2 missing, errnum"
         ols_set_excode $EX_USAGE
         ols_end
     else
         local errnum=$(printf "%4u" "$2"); errnum=${errnum// /0}
     fi
     if [[ -z "$3" ]]; then
-        printf "%s%s%s\n" "${PGMID}7002F" " " "ols_err: Augument #3 missing, ex_code"
+        printf "%s%s%s\n" "OLS7003F" " " "ols_err: Augument #3 missing, ex_code"
         ols_set_excode $EX_USAGE
         ols_end
     else
@@ -52,7 +52,7 @@ function ols_err() {
         ( *           ) local sev="F";;
     esac
 
-    printf "%s%s%s\n" ${PID}${errnum}${sev} ' ' "$msg" >&2
+    printf "%s%s%s\n" ${PID}${errnum}${sev} ' ' "$msg"
 
     ols_set_excode $ex_code
     if [[ $sev ==  "F" ]]; then ols_end; fi

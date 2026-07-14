@@ -3,7 +3,7 @@
 function test_plan() {
 
     if [[ -z "$1" ]]; then
-        ols_err "$OLSID" 7201 $EX_ERROR "test_plan: Argument #1 missing, tst_no"
+        ols_err $OLSID 7001 $EX_USAGE "test_plan: Argument #1 missing, tst_no"
         plan=""
         return $EX_ERROR
     else
@@ -12,12 +12,12 @@ function test_plan() {
     fi
 
     if ! [[ $tst_no =~ ^[[:digit:]]+$ ]]; then
-        ols_err "$OLSID" 7206 $EX_ERROR "test_plan: Test number, tst_no, must be a natural number."
+        ols_err $OLSID 7050 $EX_USAGE "test_plan: Test number, tst_no, must be a natural number."
         local plan=""
     fi
 
     if (( $tst_no <= 0 )); then
-        ols_err "$OLSID" 7202 $EX_ERROR "test_plan: Test number, tst_no, must be greater than 0."
+        ols_err $OLSID 7051 $EX_USAGE "test_plan: Test number, tst_no, must be greater than 0."
         local plan=""
     fi
 

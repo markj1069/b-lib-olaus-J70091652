@@ -110,13 +110,13 @@ function ols_wt_excode() {
 
     if [[ -z "$1" ]]
     then
-        ols_err "$OLSID" 7001 $EX_USAGE "ols_wt_excode: Missing argument #1, num"
+        ols_err $OLSID 7001 $EX_USAGE "ols_wt_excode: Missing argument #1, num"
     else
         num=$(printf "%3u" "$1");     # Convert num into a 3 digit string.
     fi
 
     if (( $num < 0 || 255 < $num )); then
-        ols_err "$OLSID" 7002 $EX_SOFTWARE "ols_wt_excode: Exit Code must be between 0 and 255."
+        ols_err $OLSID 7030 $EX_SOFTWARE "ols_wt_excode: Exit Code must be between 0 and 255."
     fi
 
     printf "%3d\n" $num >$OLS_EX_FILE
