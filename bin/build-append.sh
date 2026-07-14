@@ -31,14 +31,14 @@ OLS_VERBOSE=0
 # Validate arguments
 # Do the arguments exist?
 if [[ -z "$1" ]]; then                # filename Argument Required
-    ols_err $OLSID 7010 $EX_USAGE "build-append: Argument #1 is missing, filename."
+    ols_err $OLSID 7001 $EX_USAGE "build-append: Argument #1 is missing, filename"
     exit
 else
     declare FILENAME="$1"
 fi
 
 if [[ -z "$2" ]]; then                # LIB_NAME Argument Required
-    ols_err $OLSID 7020 $EX_USAGE "build-append: Argument #2 is missing, lib_name"
+    ols_err $OLSID 7002 $EX_USAGE "build-append: Argument #2 is missing, lib_name"
     exit
 else
     declare LIB_NAME="$2"
@@ -46,22 +46,22 @@ fi
 
 # Does the member exist?
 if [ ! -f "$FILENAME" ]; then         # FILENAME must exist 
-    ols_err $OLSID 7030 $EX_MISSINGFILE  "build-append: '$FILENAME' is does not exist."
+    ols_err $OLSID 7070 $EX_NOINPUT  "build-append: '$FILENAME' is does not exist"
     exit
 fi
 
 if [[ ! -r "$FILENAME" ]]; then
-    ols_err $OLSID 7040 $EX_NOINPUT  "build-append: '$FILENAME' is not readable"
+    ols_err $OLSID 7072 $EX_NOINPUT  "build-append: '$FILENAME' is not readable"
     exit
 fi
 
 if [ ! -f "$LIB_NAME" ]; then         # LIB_NAME must exist 
-    ols_err $OLSID 7030 $EX_MISSINGFILE  "build-append: '$LIB_NAME' is does not exist."
+    ols_err $OLSID 7073 $EX_MISSINGFILE  "build-append: '$LIB_NAME' is does not exist"
     exit
 fi
 
 if [[ ! -w "$LIB_NAME" ]]; then       # We need write permission for LIB_NAME
-    ols_err $OLSID 7050 $EX_CANTCREAT "build-append: '$LIB_NAME' is not writeable"
+    ols_err $OLSID 7074 $EX_CANTCREAT "build-append: '$LIB_NAME' is not writeable"
     exit
 fi
 
