@@ -46,7 +46,7 @@ fi
 
 # Does the member exist?
 if [ ! -f "$FILENAME" ]; then         # FILENAME must exist 
-    ols_err $OLSID 7070 $EX_NOINPUT  "build-append: '$FILENAME' is does not exist"
+    ols_err $OLSID 7072 $EX_MISSINGFILE "build-append: '$FILENAME' is does not exist"
     exit
 fi
 
