@@ -1,0 +1,374 @@
+= function_name(3)
+//
+// Document Attribute Definitions
+//
+:author: Mark J. Jensen
+:authorinitials: mjj
+:function_name: function_name
+:manvolume: 3
+:mantitle: {function_name}({manvolnum})
+:docdate: 2026-04-01
+:doctype: manpage
+:mandate: {docdate}
+:manpurpose: A one-line description of the function's purpose.
+:man_rel_name: Working Draft
+:mantitle: function_name(3)
+:manversion: 0.0.2
+:manvolume: 3
+:lang: en
+:icons: font
+:title: {mantitle}
+:subtitle: Subtitle of the manual page, if needed. Remove if not needed.
+:description: {manpurpose}
+:DC.date: {docdate}
+:DC.language: {lang}
+:DC.type: text
+:DC.format: text/asciidoc
+:DC.title: {description}
+:DC.creator: {author}
+:DC.subject: {manpurpose}
+:DC.description: {manpurpose}
+:DC.publisher: {author}
+:DC.contributor: {author}
+:DC.date: {docdate}
+:DC.type: text
+:DC.format: text/asciidoc
+:DC.identifier: {manvolume}
+:DC.source: {docname}.{docfilesuffix}
+:DC.language: {lang}
+:DC.relation: {manvolume}
+:DC.coverage: {manpurpose}
+:DC.rights: {manpurpose}
+
+
+== Name
+
+TAP Functions &mdash; Provide a Wide Range of Testing Utilities
+
+== Synopsis
+
+[horizontal]
+
+*Function*::     *Auguments*
+
+*test_plan*::    number_tests
+*done_testing*:: number_tests
+
+*ok*::           condition [test_name] [diagnostic_message]
+*not_ok*::       condition [test_name] [diagnostic_message]
+
+*is*::           got expected [test_name] [diagnostic_message]
+*isnt*::         got expected [test_name] [diagnostic_message]
+
+*cmp_ok*::       got op expected [test_name] [diagnostic_message]
+
+*pass*::        [test_name] [diagnostic_message]
+*fail*::        [test_name] [diagnostic_message]
+
+*diag*::        [test_name] [diagnostic_message]
+*note*::        [test_name] [diagnostic_message]
+
+*BAIL_OUT*::    [test_name] [diagnostic_message]
+
+== Description
+
+[horizontal]
+
+*Function*::   *Description*
+
+*test_plan*::  Inform TAP how many tests you are going to perform.
+*done_testing*:: If you can not predict the number of tests at the start of your program,
+you can tell the TAP Harness at the end of your program.
+
+*ok*::         Test that a condition is true.
+*not_ok*::     Test that a condition is false.
+
+*is*::         Test that got is equal to expected.
+*isnt*::       Test that got is not equal to expected.
+
+*cmp_ok*::     Test that "$got $op $expected" is true.
+
+*pass*::       Force a pass test.
+*fail*::       Force a fail test.
+
+*diag*::       [test_name] [diagnostic_message]
+*note*::       [test_name] [diagnostic_message]
+
+*BAIL_OUT*::   [test_name] [diagnostic_message]
+
+== Arguments
+
+[horizontal]
+
+_number_tests_:: The number of TAP tests that you expect to run or the number of TAP tests that you have run.
+
+_condition_::    _Condition_ is the test you are using, _e.g.,_ "25 -lt 30" and "$a == $b".
+
+[_test_name_]::  By convention, each test is assigned a number in order.
+This is largely done automatically for you.
+However, it's often very useful to assign a name to each test.
+
+[_diagnostic_message_]:: A fuller description of this test, _e.g._, "The number in OLS_EX_FILE should be EX_BASE."
+
+_got_::          LHS of an equality test.
+
+_expected_::     RHS of an equality test.
+
+_op_::           The operator that you want to use in a *cmp_ok*, _e.g.,_ "-eq" or ">=."
+
+
+== Return Values
+
+A list of the possible return values of the function, along with an explanation of each value.
+For example, the sin function returns a value between -1 and 1.
+
+
+== Exit Status
+
+Here is a list of the exit codes that *{function_name}* can return, along with an explanation of each code. The exit code is a number between 0 and 255, where 0 indicates successful completion and any non-zero value indicates an error or warning.
+
+[horizontal]
+
+EX = 0:: Successful completion.
+
+EX = 4:: Warning, but the function completed successfully.
+
+EX = 8:: Error, but part of the function completed okay.
+
+EX &ge; 16:: Fatal Error, the function did not complete successfully.
+
+
+== Errors
+
+A list of every informational, warning, and error messages that the function can generate
+(even the ones that will &ldquo;never happen&rdquo;), with a full explanation
+of each problem, one or more likely causes, and any suggested remedies.
+
+The format of each error number is a 8-character code that has the following structure:
+
+[horizontal]
+
+OLS:: A three letter code that identifies the Olaus Bash Shell Library.
+
+9999:: A four digit code that identifies the particular error message.
+
+X:: A single letter code that identifies the severity of the error message. where &ldquo;I&rdquo; is an informational message, &ldquo;W&rdquo; is a warning, &ldquo;E&rdquo; is an error, and &ldquo;F&rdquo; is a fatal error.
+
+=== OLS9998X
+
+routine: Error message
+
+[horizontal]
+
+Severity:: Fatal Error, Exit Code 16
+
+Explanation:: Why was this error message generated.
+
+System Action:: The system action depends upon the error conditions described in the accompanying messages.
+
+User Response:: See the specific error message to determine the user action.
+
+Programmer Response:: See the specific error message to determine the programmer action.
+
+System Programmer Response:: See the specific error message to determine the system programmer action.
+
+=== ZZZ9999X
+
+routine: Error message
+
+[horizontal]
+
+Severity:: Fatal Error, Exit Code 16
+
+Explanation:: Why was this error message generated.
+
+System Action:: The system action depends upon the error conditions described in the accompanying messages.
+
+User Response:: See the specific error message to determine the user action.
+
+Programmer Response:: See the specific error message to determine the programmer action.
+
+System Programmer Response:: See the specific error message to determine the system programmer action.
+
+
+== Environment
+
+=== Variables
+
+No environmental variables were hurt during the development of this function.
+
+
+== Dependencies
+
+A list of all of the other functions that this function relies upon, including any restrictions on versions, part of this function's distribution, or must be installed separately.
+
+
+== Files
+
+A list of the files that are used by this function.
+
+=== Input Files
+
+==== _STDIN_
+
+Describe the _STDIN_ input file format and content.
+
+==== Other Input Files
+
+Describe the other input files format and content.
+
+=== Output Files
+
+==== _STDOUT_
+
+Describe the _STDOUT_ output file format and content.
+
+==== _STDERR_
+
+Describe the _STDERR_ output file format and content.
+
+=== Other Output Files
+
+Describe the other output file format and content.
+
+
+== Version
+
+[cols="1,1,1,1", options="header"]
+|===
+| Version
+| Author
+| Description
+| Date
+
+| 0.0.1
+| Mark J. Jensen
+| 2026-03-31
+| Initial Release
+
+| {manversion}
+| {author}
+| {docdate}
+| {man_rel_name}
+
+|===
+
+
+== Security
+
+NOTE: This function does not need root/superuser/administrator permission to function.
+
+NOTE: This function does not contain any security info.
+
+
+== Standards
+
+A list of the standards that this function complies with.
+
+
+== Notes & Caveats
+
+What additional information would be useful to the user.
+
+== Bugs & Limitations
+
+A list of known problems with the module, together with some indication of
+whether they are likely to be fixed in an upcoming release.
+
+Also, a list of restrictions on the features the module does provide: data types
+that cannot be handled, performance issues and the circumstances in which they
+may arise, practical limitations on the size of data sets, special cases that
+are not (yet) handled, etc.
+
+The initial template usually just has:
+
+There are no known bugs in this module.
+
+Please report problems to <Maintainer name(s)> (<contact address>)
+
+Patches are welcome.
+
+
+== Examples
+
+Insert instructive examples here.
+
+Multiple input files are valid, _e.g._,
+
+[source,bash]
+----
+ {function_name} -i file1 --input=file2 file3 file4 file5
+----
+
+A single output file is valid, _e.g._,
+
+[source,bash]
+----
+ {function_name} -i file1 -o output.file
+----
+
+== Frequently Asked Questions
+
+Correct answers to common questions about the script. Remove this section if there are no FAQs.
+
+
+== Incompatibilities
+
+A list of any functions that this function cannot be used in conjunction with.
+This may be due to name conflicts, or because of resource conflicts, or because of some other reason.
+
+== Resources
+
+Conway, Damian 2005:: Damian Conway.
+2005.
+_Ten Essential Development Practice_,
+Retrieved March 15, 2007,
+from http://www.perl.com/pub/a/2005/07/14/bestpractices.html.
+
+Barrett, _et al._ 2005:: Daniel J. Barrett, Richard E. Silverman, and Robert G. Byrnes.
+2005.
+_SSH, the Secure Shell: The Definitive Guide_,
+2nd Edition.
+(Sebastopol: O'Reilly Media)
+
+Robbins and Beebe 2005:: Arnold Robbins and Nelson H. F. Beebe.
+2005.
+_Classic Shell Scripting_.
+(Sebastopol: O'Reilly Media)
+
+
+== Acknowledgements
+
+Whoever you want to thank for their help in the development of this script. Remove this section if there is no one to thank.
+
+
+== See Also
+
+*ols_begin*
+
+
+== Colophon
+
+=== Dublin Core Metadata
+
+[horizontal]
+
+DC.date:: {DC.date}
+DC.language:: {DC.language}
+DC.type:: {DC.type}
+DC.format:: {DC.format}
+DC.title:: {DC.title}
+DC.creator:: {DC.creator}
+DC.subject:: {DC.subject}
+DC.description:: {DC.description}
+DC.publisher:: {DC.publisher}
+DC.contributor:: {DC.contributor}
+DC.date:: {DC.date}
+DC.type:: {DC.type}
+DC.format:: {DC.format}
+DC.identifier:: {DC.identifier}
+DC.source:: {DC.source}
+DC.language:: {DC.language}
+DC.relation:: {DC.relation}
+DC.coverage:: {DC.coverage}
+DC.rights::  {DC.rights}
