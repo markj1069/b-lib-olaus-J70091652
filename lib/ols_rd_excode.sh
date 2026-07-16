@@ -104,7 +104,7 @@ function ols_rd_excode() {
 
     # Synopsis: N=$(ols_rd_excode)
     read -r EX_CODE <"$OLS_EX_FILE"   # EX_CODE as a trailing NEWLINE
-    EX_CODE="${$EX_CODE%$'\n'}"       # Strip the NEWLINE
+    EX_CODE="${EX_CODE%$'\n'}"        # Strip the NEWLINE # Issue #21
     echo $EX_CODE                     # Return EX_CODE
 
 } # end ols_rd_tstno
