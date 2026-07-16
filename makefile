@@ -80,7 +80,7 @@ olslib lib/olslib: lib/newlib
 	cp lib/newlib lib/olslib
 
 
-#lib/olslib: lib/newlib
+#lib: lib/newlib
 #	bin/build-lib.sh
 
 olstst:
@@ -157,7 +157,7 @@ TAGS:
 info:
 	echo "info:"
 
-lib: lib/olslib
+libols: lib/olslib
 	bin/build-lib.sh $(OLSDIR)/newlib
 	cp $(OLSDIR)/newlib $(OLSTARGET)
 

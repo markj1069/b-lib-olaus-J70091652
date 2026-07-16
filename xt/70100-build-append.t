@@ -59,6 +59,7 @@ is $EX_CODE   $EX_MISSINGFILE "Aug_2_Missing" "build-append checks for LIB_NAME 
 # Test that the build-append.sh script checks for LIB_NAME being writeable.
 $PROJ_BIN/build-append.sh xt/lib/tst01.txt xt/lib/tst10_no_write.txt
 EX_CODE=$?                            # Capture the exit code from the build-append.
+echo "EX_CODE: $EX_CODE"
 is $EX_CODE   $EX_CANTCREAT "Aug_2_NotWriteable" "build-append checks for LIB_NAME being writeable."
 
 ols_end
